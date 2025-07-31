@@ -201,22 +201,39 @@ const Index = () => {
             <div className="lg:w-3/4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map(product => (
-                  <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gray-50">
+                  <Card 
+                    key={product.id} 
+                    className="overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer group"
+                  >
+                    <div className="aspect-square bg-gray-50 overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                     <CardContent className="p-4">
-                      <Badge variant="secondary" className="mb-2">{product.brand}</Badge>
-                      <h3 className="font-bold mb-2">{product.name}</h3>
-                      <p className="text-sm text-gray-600 mb-3">{product.description}</p>
+                      <Badge 
+                        variant="secondary" 
+                        className="mb-2 transition-colors duration-300 group-hover:bg-black group-hover:text-white"
+                      >
+                        {product.brand}
+                      </Badge>
+                      <h3 className="font-bold mb-2 transition-colors duration-300 group-hover:text-gray-600">
+                        {product.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-3 transition-opacity duration-300 group-hover:opacity-80">
+                        {product.description}
+                      </p>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold">{product.price} ₽</span>
-                        <Button onClick={addToCart} className="bg-black text-white hover:bg-gray-800">
-                          <Icon name="Plus" size={16} className="mr-2" />
+                        <span className="text-2xl font-bold transition-all duration-300 group-hover:text-3xl group-hover:text-black">
+                          {product.price} ₽
+                        </span>
+                        <Button 
+                          onClick={addToCart} 
+                          className="bg-black text-white hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
+                        >
+                          <Icon name="Plus" size={16} className="mr-2 transition-transform duration-300 group-hover:rotate-90" />
                           В корзину
                         </Button>
                       </div>
